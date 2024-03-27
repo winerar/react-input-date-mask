@@ -12,6 +12,7 @@ const ReactInputDateMask = ({
     id,
     defaultValue,
     onChange = undefined,
+    onClick = undefined,
     disabled = false,
     readOnly = false
 }) => {
@@ -109,8 +110,9 @@ const ReactInputDateMask = ({
         }
     };
 
-    const onClick = (e) => {
+    const handleClick = (e) => {
         trackingCursorPos(e);
+        onClick(e);
     };
 
     const onTouchStart = (e) => {
@@ -226,7 +228,7 @@ const ReactInputDateMask = ({
                 setCursor(!toggleCursor);
             }
 
-            // onChange?.(Object.values(newState).join(''));
+            onChange?.(Object.values(newState).join(''));
         }
     };
 
@@ -246,7 +248,7 @@ const ReactInputDateMask = ({
                 end: newEnd
             };
         });
-        // onChange?.(Object.values(newState).join(''));
+        onChange?.(Object.values(newState).join(''));
     };
 
     const onKeyDown = (e) => {
@@ -323,7 +325,7 @@ const ReactInputDateMask = ({
     const newState = Object.keys(value)?.length > 0 ? Object.values(value).join('') : value;
     return (
         <input ref={myRef} placeholder={statePlaceholder} type='tel'
-            onClick={onClick} id={id} className={className} spellCheck="false" onInput={onInput} onTouchStart={onTouchStart}
+            onClick={handleClick} id={id} className={className} spellCheck="false" onInput={onInput} onTouchStart={onTouchStart}
             onFocus={onFocus} defaultValue={defaultValue} value={maskOnFocus ? newState : ''} onKeyDown={onKeyDown}
             autoComplete='off' onMouseEnter={onHandleMouseEnter}
             onMouseLeave={onHandleMouseLeave} onBlur={onHandleBlur} disabled={disabled} readOnly={readOnly} />

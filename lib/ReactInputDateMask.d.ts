@@ -7,6 +7,7 @@ export interface InputDateMaskProps {
   id?: string,
   defaultValue?: string | number | readonly string[] | undefined,
   onChange?(): void,
+  onClick?(): void,
   disabled?: boolean,
   readOnly?: boolean,
 }
