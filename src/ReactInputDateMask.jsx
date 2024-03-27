@@ -123,7 +123,7 @@ const ReactInputDateMask = ({
         const regex = {
             d: /([0-3][dд])|(0[1-9]|[12][0-9]|3[01])|([dд][0-9])/,
             m: /([0-1][mм])|(0[1-9]|1[012])|([mм][0-2])/,
-            y: /([1-2](yyy|ггг))|((19|20)(yy|гг))|((19|20)\d(y|г))|((19|20)\d\d)|((y|г){2,3}\d{1,2})|((yy|гг)\dy)|([1-2](y|г)\d{1,2})/,
+            y: /([1-2](yyy|ГГГ))|((19|20)(yy|ГГ))|((19|20)\d(y|Г))|((19|20)\d\d)|((y|Г){2,3}\d{1,2})|((yy|ГГ)\dy)|([1-2](y|Г)\d{1,2})/,
             '/': /\//,
             '.': /\./
         };
@@ -135,11 +135,11 @@ const ReactInputDateMask = ({
             newVal = mask === 'dd.mm.yyyy' || mask === 'dd/mm/yyyy' ? valueString.slice(3, 5) : valueString.slice(0, 2);
         } else if (letter === "y") {
             newVal = valueString.slice(6, 10);
-        } else if (letter === "д") {
+        } else if (letter === "Д") {
             newVal = mask === 'ДД.ММ.ГГГГ' || mask === 'ДД/ММ/ГГГГ' ? valueString.slice(0, 2) : valueString.slice(3, 5);
-        } else if (letter === "м") {
+        } else if (letter === "М") {
             newVal = mask === 'ДД.ММ.ГГГГ' || mask === 'ДД/ММ/ГГГГ' ? valueString.slice(3, 5) : valueString.slice(0, 2);
-        } else if (letter === "г") {
+        } else if (letter === "Г") {
             newVal = valueString.slice(6, 10);
         } else {
             if (position === 3) {
