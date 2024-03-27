@@ -1,5 +1,5 @@
 export interface InputDateMaskProps {
-  mask: string,
+  mask?: string,
   showMaskOnFocus?: boolean,
   showMaskOnHove?: boolean,
   value?: string | number | readonly string[] | undefined,
