@@ -6,8 +6,8 @@ export interface InputDateMaskProps {
   className?: string,
   id?: string,
   defaultValue?: string | number | readonly string[] | undefined,
-  onChange?(): void,
-  onClick?(): void,
+  onChange?: ChangeEventHandler<HTMLInputElement> | undefined,
+  onClick?: MouseEventHandler<HTMLInputElement> | undefined,
   disabled?: boolean,
   readOnly?: boolean,
 }
