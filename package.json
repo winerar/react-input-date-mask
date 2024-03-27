@@ -3,6 +3,7 @@
   "version": "1.0.5",
   "description": "Masked input component for React",
   "main": "./lib/ReactInputDateMask.js",
+  "typings": "./lib/ReactInputDateMask.d.ts",
   "scripts": {
     "build": "webpack"
   },
@@ -33,6 +34,7 @@
     "@babel/core": "^7.13.1",
     "@babel/preset-env": "^7.13.5",
     "@babel/preset-react": "^7.12.13",
+    "@types/react": "^18.2.72",
     "babel-loader": "^8.2.2",
     "path": "^0.12.7",
     "webpack": "^5.24.1",
