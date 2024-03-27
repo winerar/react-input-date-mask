@@ -3,20 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { mobile } from "./utils";
 import { DELETE_CONTENT_BACKWARD } from './constants';
 
-interface Props {
-    mask: string,
-    showMaskOnFocus?: boolean,
-    showMaskOnHove?: boolean,
-    value?: string,
-    className?: string,
-    id?: string,
-    defaultValue?: string,
-    onChange?(): void,
-    disabled?: boolean,
-    readOnly?: boolean,
-}
-
-const ReactInputDateMask: React.FC<Props> = ({
+const ReactInputDateMask = ({
     mask = 'dd.mm.yyyy',
     showMaskOnFocus = false,
     showMaskOnHover = false,
@@ -78,13 +65,13 @@ const ReactInputDateMask: React.FC<Props> = ({
             digits: /[0-9]/g,
             letters: /[mMyYdD]/
         };
-        const resultArray = Object.values(value).filter((el: any) => el !== separator).map((el: any) => el.search(regex[looking])).filter(el => el === 0);
+        const resultArray = Object.values(value).filter((el) => el !== separator).map((el) => el.search(regex[looking])).filter(el => el === 0);
         return resultArray.length;
     };
 
     const isCurrValueHaveDigits = (currValue) => {
         const quantityDigits = findDigitsOrLettersInValue({ value: currValue, looking: 'digits' });
-        const resultIndexLetters = Object.values(currValue).findIndex((el: any) => {
+        const resultIndexLetters = Object.values(currValue).findIndex((el) => {
             const regex = /[mMyYdD]/;
             const result = el.search(regex);
             return result === 0;
@@ -285,14 +272,14 @@ const ReactInputDateMask: React.FC<Props> = ({
     };
 
     const onHandlePaste = ({ target: { selectionStart }, clipboardData }) => {
-        const pasteRaw = (clipboardData || (window as any).clipboardData).getData('text');
+        const pasteRaw = (clipboardData || window.clipboardData).getData('text');
         const paste = pasteRaw.length <= 10 ? pasteRaw : pasteRaw.slice(0, 10);
         const valueString = Object.values(value).join('');
         const prevValue = valueString.slice(0, selectionStart);
         const postValue = valueString.slice(selectionStart + paste.length);
         let pos = selectionStart;
         let newValueObject = { ...value };
-        let arrayValue: Array<any> = [];
+        let arrayValue = [];
         [...paste].forEach((el, index) => {
             pos += 1;
             newValueObject[pos] = el;
@@ -341,7 +328,7 @@ const ReactInputDateMask: React.FC<Props> = ({
             autoComplete='off' onMouseEnter={onHandleMouseEnter}
             onMouseLeave={onHandleMouseLeave} onBlur={onHandleBlur} disabled={disabled} readOnly={readOnly} />
     );
-}
+};
 
 export { ReactInputDateMask as default }
 
