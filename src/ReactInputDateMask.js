@@ -112,7 +112,9 @@ const ReactInputDateMask = ({
 
     const handleClick = (e) => {
         trackingCursorPos(e);
-        onClick?.(e);
+        if (typeof onClick !== 'undefined') {
+            onClick(e);
+        }
     };
 
     const onTouchStart = (e) => {
@@ -135,7 +137,7 @@ const ReactInputDateMask = ({
             newVal = mask === 'dd.mm.yyyy' || mask === 'dd/mm/yyyy' ? valueString.slice(3, 5) : valueString.slice(0, 2);
         } else if (letter === "y") {
             newVal = valueString.slice(6, 10);
-        }  else {
+        } else {
             if (position === 3) {
                 newVal = valueString.slice(2, 3);
             } else {
