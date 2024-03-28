@@ -111,8 +111,11 @@ const ReactInputDateMask = ({
     };
 
     const handleClick = (e) => {
+        console.log('Click');
         trackingCursorPos(e);
+        console.log(typeof onClick);
         if (typeof onClick !== 'undefined') {
+            console.log('handle click');
             onClick(e);
         }
     };
