@@ -2,7 +2,7 @@ export interface InputDateMaskProps {
   mask?: string,
   showMaskOnFocus?: boolean,
   showMaskOnHove?: boolean,
-  value?: string | number | readonly string[],
+  inputValue?: string | number | readonly string[],
   className?: string,
   id?: string,
   defaultValue?: string | number | readonly string[],

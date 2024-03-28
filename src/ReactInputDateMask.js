@@ -7,7 +7,7 @@ const ReactInputDateMask = ({
     mask = 'dd.mm.yyyy',
     showMaskOnFocus = false,
     showMaskOnHover = false,
-    value: inputValue = '',
+    inputValue = '',
     className = '',
     id,
     defaultValue,
@@ -111,11 +111,8 @@ const ReactInputDateMask = ({
     };
 
     const handleClick = (e) => {
-        console.log('Click');
         trackingCursorPos(e);
-        console.log(typeof onClick);
         if (typeof onClick !== 'undefined') {
-            console.log('handle click');
             onClick(e);
         }
     };
@@ -329,7 +326,7 @@ const ReactInputDateMask = ({
     const newState = Object.keys(value)?.length > 0 ? Object.values(value).join('') : value;
     return (
         <input ref={myRef} placeholder={statePlaceholder} type='tel'
-            id={id} className={className} spellCheck="false" onInput={onInput} onTouchStart={onTouchStart}
+            onClick={handleClick} id={id} className={className} spellCheck="false" onInput={onInput} onTouchStart={onTouchStart}
             onFocus={onFocus} defaultValue={defaultValue} value={maskOnFocus ? newState : ''} onKeyDown={onKeyDown}
             autoComplete='off' onMouseEnter={onHandleMouseEnter}
             onMouseLeave={onHandleMouseLeave} onBlur={onHandleBlur} disabled={disabled} readOnly={readOnly} />
