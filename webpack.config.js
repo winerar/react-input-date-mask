@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     mode: 'production',
-    entry: './src/ReactInputDateMask.jsx',
+    entry: './src/ReactInputDateMask.js',
     output: {
         path: path.resolve('lib'),
         filename: 'ReactInputDateMask.js',

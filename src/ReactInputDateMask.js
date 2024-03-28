@@ -11,8 +11,8 @@ const ReactInputDateMask = ({
     className = '',
     id,
     defaultValue,
-    onChange = undefined,
-    onClick = undefined,
+    onChange,
+    onClick,
     disabled = false,
     readOnly = false
 }) => {
