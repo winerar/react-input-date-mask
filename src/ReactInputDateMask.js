@@ -112,7 +112,7 @@ const ReactInputDateMask = ({
 
     const handleClick = (e) => {
         trackingCursorPos(e);
-        onClick(e);
+        onClick?.(e);
     };
 
     const onTouchStart = (e) => {
