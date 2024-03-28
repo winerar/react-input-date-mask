@@ -329,7 +329,7 @@ const ReactInputDateMask = ({
     const newState = Object.keys(value)?.length > 0 ? Object.values(value).join('') : value;
     return (
         <input ref={myRef} placeholder={statePlaceholder} type='tel'
-            onClick={onClick} id={id} className={className} spellCheck="false" onInput={onInput} onTouchStart={onTouchStart}
+            id={id} className={className} spellCheck="false" onInput={onInput} onTouchStart={onTouchStart}
             onFocus={onFocus} defaultValue={defaultValue} value={maskOnFocus ? newState : ''} onKeyDown={onKeyDown}
             autoComplete='off' onMouseEnter={onHandleMouseEnter}
             onMouseLeave={onHandleMouseLeave} onBlur={onHandleBlur} disabled={disabled} readOnly={readOnly} />
