@@ -275,7 +275,7 @@ const ReactInputDateMask = ({
     };
 
     const onHandlePaste = ({ target: { selectionStart }, clipboardData }) => {
-        const pasteRaw = (clipboardData || window.clipboardData).getData('text');
+        const pasteRaw = (clipboardData).getData('text');
         const paste = pasteRaw.length <= 10 ? pasteRaw : pasteRaw.slice(0, 10);
         const valueString = Object.values(value).join('');
         const prevValue = valueString.slice(0, selectionStart);
