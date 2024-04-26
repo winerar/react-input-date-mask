@@ -334,7 +334,7 @@ const ReactInputDateMask = ({
     );
 };
 
-export { ReactInputDateMask as default }
+export { ReactInputDateMask as default };
 
 
 
