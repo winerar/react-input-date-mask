@@ -65,7 +65,7 @@ const ReactInputDateMask = ({
         const separator = value['3'];
         const regex = {
             digits: /[0-9]/g,
-            letters: /[мМгГдД]/
+            letters: /[МмГгДд]/
         };
         const resultArray = Object.values(value).filter((el) => el !== separator).map((el) => el.search(regex[looking])).filter(el => el === 0);
         return resultArray.length;
@@ -74,7 +74,7 @@ const ReactInputDateMask = ({
     const isCurrValueHaveDigits = (currValue) => {
         const quantityDigits = findDigitsOrLettersInValue({ value: currValue, looking: 'digits' });
         const resultIndexLetters = Object.values(currValue).findIndex((el) => {
-            const regex = /[мМгГдД]/;
+            const regex = /[МмГгДд]/;
             const result = el.search(regex);
             return result === 0;
         });
