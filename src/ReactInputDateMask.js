@@ -62,7 +62,7 @@ const ReactInputDateMask = ({
     };
 
     const findDigitsOrLettersInValue = ({ value, looking }) => {
-        const separator = value['3'];
+        const separator = value['2'];
         const regex = {
             digits: /[0-9]/g,
             letters: /[МмГгДд]/
