@@ -5,7 +5,7 @@ import { mobile } from "./utils";
 import { DELETE_CONTENT_BACKWARD } from './constants';
 
 const ReactInputDateMask = ({
-    mask = 'dd.mm.yyyy',
+    mask = 'ДД.ММ.ГГГГ',
     showMaskOnFocus = false,
     showMaskOnHover = false,
     inputValue = '',
@@ -65,7 +65,7 @@ const ReactInputDateMask = ({
         const separator = value['3'];
         const regex = {
             digits: /[0-9]/g,
-            letters: /[mMyYdD]/
+            letters: /[мМгГдД]/
         };
         const resultArray = Object.values(value).filter((el) => el !== separator).map((el) => el.search(regex[looking])).filter(el => el === 0);
         return resultArray.length;
@@ -74,7 +74,7 @@ const ReactInputDateMask = ({
     const isCurrValueHaveDigits = (currValue) => {
         const quantityDigits = findDigitsOrLettersInValue({ value: currValue, looking: 'digits' });
         const resultIndexLetters = Object.values(currValue).findIndex((el) => {
-            const regex = /[mMyYdD]/;
+            const regex = /[мМгГдД]/;
             const result = el.search(regex);
             return result === 0;
         });
@@ -124,19 +124,19 @@ const ReactInputDateMask = ({
 
     const checkOneValue = (val, valueString, position) => {
         const regex = {
-            d: /([0-3]d)|(0[1-9]|[12][0-9]|3[01])|(d[0-9])/,
-            m: /([0-1]m)|(0[1-9]|1[012])|(m[0-2])/,
-            y: /([1-2]yyy)|((19|20)yy)|((19|20)\dy)|((19|20)\d\d)|(y{2,3}\d{1,2})|(yy\dy)|([1-2]y\d{1,2})/,
+            d: /([0-3]Д)|(0[1-9]|[12][0-9]|3[01])|(Д[0-9])/,
+            m: /([0-1]М)|(0[1-9]|1[012])|(М[0-2])/,
+            y: /([1-2]ГГГ)|((19|20)ГГ)|((19|20)\dГ)|((19|20)\d\d)|(Г{2,3}\d{1,2})|(ГГ\dГ)|([1-2]Г\d{1,2})/,
             '/': /\//,
             '.': /\./
         };
         const letter = letterObject[position];
         let newVal;
-        if (letter === "d") {
-            newVal = mask === 'dd.mm.yyyy' || mask === 'dd/mm/yyyy' ? valueString.slice(0, 2) : valueString.slice(3, 5);
-        } else if (letter === "m") {
-            newVal = mask === 'dd.mm.yyyy' || mask === 'dd/mm/yyyy' ? valueString.slice(3, 5) : valueString.slice(0, 2);
-        } else if (letter === "y") {
+        if (letter === "Д") {
+            newVal = mask === 'ДД.ММ.ГГГГ' || mask === 'ДД/ММ/ГГГГ' ? valueString.slice(0, 2) : valueString.slice(3, 5);
+        } else if (letter === "М") {
+            newVal = mask === 'ДД.ММ.ГГГГ' || mask === 'ДД/ММ/ГГГГ' ? valueString.slice(3, 5) : valueString.slice(0, 2);
+        } else if (letter === "Г") {
             newVal = valueString.slice(6, 10);
         } else {
             if (position === 3) {
