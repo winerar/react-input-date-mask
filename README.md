@@ -1,5 +1,11 @@
 # react-input-date-mask
 
+---
+
+Under developing. I want to add more masks and optimize this component.
+
+---
+
 At the moment, the project is not supported, I will only be glad if someone makes a fork and finalizes it
 
 Input date masking component for React. React-input-date-mask requires React 16.8.0 or later.
